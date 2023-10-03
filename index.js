@@ -13,6 +13,7 @@ function setAmount() {
     switch (PDVpercentage) {
       case "7%":
         if (SumPDV) {
+          PDVAmount = ((SumPDV / 1.07) * 0.07).toFixed(2);
           setAttrValue("PDVAmount", ((SumPDV / 1.07) * 0.07).toFixed(2));
           setAttrValue("SumOutPDV", Number(SumPDV - PDVAmount));
         }
@@ -20,6 +21,7 @@ function setAmount() {
 
       case "20%":
         if (SumPDV) {
+          PDVAmount = (SumPDV / 6).toFixed(2);
           setAttrValue("PDVAmount", (SumPDV / 6).toFixed(2));
           setAttrValue("SumOutPDV", Number(SumPDV - PDVAmount));
         }
@@ -27,7 +29,7 @@ function setAmount() {
 
       default:
         setAttrValue("PDVAmount", 0);
-        setAttrValue("SumOutPDV", PDVAmount);
+        setAttrValue("SumOutPDV", SumPDV);
         break;
     }
   }
